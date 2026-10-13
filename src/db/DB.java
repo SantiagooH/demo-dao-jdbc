@@ -21,7 +21,7 @@ public class DB {
 				conn = DriverManager.getConnection(url, props);
 			}
 			catch (SQLException e) {
-				e.printStackTrace();
+				throw new DbException(e.getMessage());
 			}
 		}
 		return conn;
@@ -45,7 +45,7 @@ public class DB {
 				conn.close();
 			}
 			catch (SQLException e) {
-				e.printStackTrace();
+				throw new DbException(e.getMessage());
 			}
 		}
 	}
